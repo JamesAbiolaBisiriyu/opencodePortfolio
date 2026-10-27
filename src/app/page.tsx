@@ -1,33 +1,45 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
+import portrait from "@/content/myPicture.jpeg";
 
 export default function HomePage() {
   return (
     <main id="main-content">
-      <section className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-        <p className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-          {site.location} · {site.availability}
-        </p>
-        <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-slate-950 sm:text-7xl">
-          {site.title} freelancing for small businesses and startups.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-muted">
-          I turn ambitious ideas into useful, accessible web products with
-          thoughtful engineering and AI-assisted workflows.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Link
-            className="rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground"
-            href="/projects"
-          >
-            View my work
-          </Link>
-          <Link
-            className="rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-900"
-            href="/contact"
-          >
-            Start a conversation
-          </Link>
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="hero-copy">
+            <p className="hero-eyebrow">
+              {site.location} <span aria-hidden="true">·</span> {site.availability}
+            </p>
+            <h1 className="hero-title">James Abiola Bisiriyu</h1>
+            <p className="hero-role">Full-stack developer based in Lagos</p>
+            <p className="hero-tagline">
+              I build modern web products that help small businesses and startups move forward.
+            </p>
+            <div className="hero-actions">
+              <Link className="hero-button hero-button-primary" href="/projects">
+                View my work
+              </Link>
+              <Link className="hero-button hero-button-secondary" href="/contact">
+                Contact me
+              </Link>
+            </div>
+          </div>
+
+          <div className="hero-portrait-wrap">
+            <div className="hero-portrait-frame">
+              <Image
+                className="hero-portrait"
+                src={portrait}
+                alt="Portrait of James Abiola Bisiriyu"
+                width={1086}
+                height={1450}
+                priority
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1152px) 42vw, 480px"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </main>
